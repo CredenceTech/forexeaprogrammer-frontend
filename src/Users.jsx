@@ -299,8 +299,8 @@ const Users = () => {
 
                     {/* Left: Avatars */}
 
-                    <fieldset className="w-36 space-y-1 text-gray-800 mb-3 dark:text-gray-100">
-                        <div className="relative text-slate-400 dark:text-slate-500">
+                    <fieldset className="w-36 space-y-1  mb-3 text-gray-100">
+                        <div className="relative text-slate-500">
                             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                                 <button
                                     type="button"
@@ -310,7 +310,7 @@ const Users = () => {
                                     <svg
                                         fill="currentColor"
                                         viewBox="0 0 512 512"
-                                        className="w-4 h-4 dark:text-gray-100"
+                                        className="w-4 h-4 text-gray-100"
                                     >
                                         <path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
                                     </svg>
@@ -323,7 +323,7 @@ const Users = () => {
                                     setKeywordValue(e.target.value);
                                 }}
                                 placeholder="Search..."
-                                className="w-36 py-2 pl-10 pr-10 text-sm rounded-md sm:w-auto focus:outline-none dark:bg-gray-800 dark:text-gray-100 focus:dark:bg-gray-700 focus:dark:border-violet-400"
+                                className="w-36 py-2 pl-10 pr-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-800 text-gray-100 focus:bg-gray-700 focus:border-violet-400"
                             />
                             <span
                                 className={`absolute ${keywordValue ? "" : "hidden"
@@ -347,7 +347,7 @@ const Users = () => {
                     </fieldset>
                     <div className="flex justify-end">
                         <div onClick={() => { setModelOpen(true) }}>
-                            <button type="button" className="text-white p-3 rounded dark:bg-indigo-500 bg-indigo-400 mb-4"><svg xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" /></svg></button>
+                            <button type="button" className="text-white p-3 rounded bg-indigo-500  mb-4"><svg xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" /></svg></button>
                         </div>
                     </div>
                 </div>
@@ -355,7 +355,7 @@ const Users = () => {
 
                 {modelOpen && (
                     <div className={` bg-[#000000ab] h-full w-full mb-9  flex items-center justify-center z-50 `}>
-                        <div className={`flex flex-col w-full bg-white gap-2 h-full overflow-auto shadow-md dark:bg-gray-800 dark:text-gray-100 `}>
+                        <div className={`flex flex-col w-full  gap-2 h-full overflow-auto shadow-md bg-gray-800 text-gray-100 `}>
                             <div className='flex justify-between px-5 py-7 bg-slate-600'>
                                 <h2 className="flex items-center  text-gray-100 gap-2 text-xl font-semibold leadi tracki">
                                     {particularItem?.name ? 'Update User' : 'Add User'}
@@ -379,7 +379,7 @@ const Users = () => {
                                         id="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full bg-gray-200 dark:bg-slate-700 bg-opacity-40 rounded border focus:bg-salte-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        className="w-full bg-slate-700 bg-opacity-40 rounded border focus:bg-salte-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     />
                                 </div>
                                 <div className="relative sm:mr-4 mt-3 mr-2">
@@ -392,7 +392,7 @@ const Users = () => {
                                         id="account_number"
                                         value={formData.account_number}
                                         onChange={handleChange}
-                                        className="w-full bg-gray-200 bg-opacity-40 rounded border dark:bg-slate-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        className="w-full  bg-opacity-40 rounded border bg-slate-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     />
                                 </div>
                                 <div className="relative sm:mr-4 mt-3 mr-2">
@@ -406,15 +406,15 @@ const Users = () => {
                                         min={minDate}
                                         value={particularItem?.date_time ? dateFoemate(particularItem?.date_time) : formData.date_time}
                                         onChange={handleChange}
-                                        className="w-full bg-gray-200 bg-opacity-40 rounded border dark:bg-slate-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        className="w-full  bg-opacity-40 rounded border bg-slate-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     />
                                 </div>
 
 
                                 <hr className='my-6' />
                                 <div className="flex flex-col justify-end gap-3 sm:flex-row">
-                                    <button onClick={() => { setModelOpen(false); setParticularItem(null); setFormData({ name: '', account_number: '', date_time: '' }); setError('') }} className="px-6 py-2 border rounded-sm dark:text-gray-50 dark:border-gray-700">Cancel</button>
-                                    <button type="submit" className="px-6 py-2 rounded-sm shadow-sm bg-indigo-500 text-white dark:bg-indigo-400 dark:text-gray-900">
+                                    <button onClick={() => { setModelOpen(false); setParticularItem(null); setFormData({ name: '', account_number: '', date_time: '' }); setError('') }} className="px-6 py-2 border rounded-sm text-gray-50 border-gray-700">Cancel</button>
+                                    <button type="submit" className="px-6 py-2 rounded-sm shadow-sm bg-indigo-500   text-gray-900">
                                         {particularItem ? 'Update' : 'Submit'}
                                     </button>
                                 </div>
@@ -425,13 +425,13 @@ const Users = () => {
 
 
 
-                <div className="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+                <div className="col-span-full xl:col-span-8 bg-slate-800  shadow-lg rounded-sm border border-slate-700">
                     <div className="p-3">
                         {/* Table */}
                         <div className="overflow-x-auto">
-                            <table className="table-auto w-full dark:text-slate-300">
+                            <table className="table-auto w-full text-slate-300">
                                 {/* Table header */}
-                                <thead className="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm">
+                                <thead className="text-xs uppercase text-slate-200 bg-slate-700 bg-opacity-50 rounded-sm">
                                     <tr>
                                         <th className="p-2">
                                             <div className="font-semibold text-left">Name</div>
@@ -451,7 +451,7 @@ const Users = () => {
                                     </tr>
                                 </thead>
                                 {/* Table body */}
-                                <tbody className="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700">
+                                <tbody className="text-sm font-medium divide-y divide-slate-700">
                                     {/* Row */}
                                     {users?.data?.map((item) => {
                                         return (
@@ -493,35 +493,35 @@ const Users = () => {
 
                 <>
                     <div className='flex justify-end'>
-                        <nav aria-label="Pagination" className="inline-flex  -space-x-px rounded-md mt-3 shadow-sm dark:bg-gray-800 dark:text-gray-100">
+                        <nav aria-label="Pagination" className="inline-flex  -space-x-px rounded-md mt-3 shadow-sm bg-gray-800 text-gray-100">
 
-                            <button onClick={previousPage} className={`inline-flex items-center ${localPage === 1 ? 'disable' : ''} px-2 py-2 text-sm font-semibold border rounded-l-md dark:border-gray-700`}>
+                            <button onClick={previousPage} className={`inline-flex items-center ${localPage === 1 ? 'disable' : ''} px-2 py-2 text-sm font-semibold border rounded-l-md border-gray-700`}>
                                 <span className="sr-only">Previous</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="w-5 h-5">
                                     <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path>
                                 </svg>
                             </button>
                             {localPage > 1 && (
-                                <button onClick={() => goToPage(1)} aria-current="page" className={`inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700 ${localPage === 1 ? 'bg-indigo-400' : ''}`}>1</button>
+                                <button onClick={() => goToPage(1)} aria-current="page" className={`inline-flex items-center px-4 py-2 text-sm font-semibold border border-gray-700 ${localPage === 1 ? 'bg-indigo-400' : ''}`}>1</button>
                             )}
                             {localPage > 3 && (
-                                <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700">...</button>
+                                <button type="button" className="inline-flex items-center px-4 py-2 text-sm font-semibold border border-gray-700">...</button>
                             )}
                             {localPage > 2 && (
-                                <button onClick={() => goToPage(localPage - 1)} className={`inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700 ${localPage - 1 === currentPage ? 'bg-indigo-400' : ''}`}>{localPage - 1}</button>
+                                <button onClick={() => goToPage(localPage - 1)} className={`inline-flex items-center px-4 py-2 text-sm font-semibold borderborder-gray-700 ${localPage - 1 === currentPage ? 'bg-indigo-400' : ''}`}>{localPage - 1}</button>
                             )}
-                            <button className={`inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700 ${localPage === currentPage ? 'bg-indigo-400' : ''}`}>{localPage}</button>
+                            <button className={`inline-flex items-center px-4 py-2 text-sm font-semibold border border-gray-700 ${localPage === currentPage ? 'bg-indigo-400' : ''}`}>{localPage}</button>
 
                             {localPage < totalPages - 1 && (
-                                <button onClick={() => goToPage(localPage + 1)} className={`inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700 ${localPage + 1 === currentPage ? 'bg-indigo-400' : ''}`}>{localPage + 1}</button>
+                                <button onClick={() => goToPage(localPage + 1)} className={`inline-flex items-center px-4 py-2 text-sm font-semibold border border-gray-700 ${localPage + 1 === currentPage ? 'bg-indigo-400' : ''}`}>{localPage + 1}</button>
                             )}
                             {localPage < totalPages - 2 && (
-                                <button className="inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700">...</button>
+                                <button className="inline-flex items-center px-4 py-2 text-sm font-semibold borderborder-gray-700">...</button>
                             )}
                             {localPage < totalPages && (
-                                <button onClick={() => goToPage(totalPages)} className={`inline-flex items-center px-4 py-2 text-sm font-semibold border dark:border-gray-700 ${totalPages === currentPage ? 'bg-indigo-400' : ''}`}>{totalPages}</button>
+                                <button onClick={() => goToPage(totalPages)} className={`inline-flex items-center px-4 py-2 text-sm font-semibold border border-gray-700 ${totalPages === currentPage ? 'bg-indigo-400' : ''}`}>{totalPages}</button>
                             )}
-                            <button onClick={nextPage} className={`inline-flex items-center px-2 py-2 text-sm ${localPage === totalPages ? 'disable' : ''} font-semibold border rounded-r-md dark:border-gray-700`}>
+                            <button onClick={nextPage} className={`inline-flex items-center px-2 py-2 text-sm ${localPage === totalPages ? 'disable' : ''} font-semibold border rounded-r-md border-gray-700`}>
                                 <span className="sr-only">Next</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="w-5 h-5">
                                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
