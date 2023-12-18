@@ -1,8 +1,5 @@
 import { useState } from "react";
-const item = localStorage.getItem('user');
-const user = item ? JSON.parse(item) : '';
-export const devUrl = "https://e41e-43-249-231-180.ngrok-free.app/api/"
-export const token = user?.api_key
+export const devUrl = "https://api.forexeaprogrammer.com/api/"
 
 
 

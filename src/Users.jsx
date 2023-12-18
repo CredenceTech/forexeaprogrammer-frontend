@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
-import { devUrl, token, useLocalStorage } from './utils'
+import { devUrl, useLocalStorage } from './utils'
 import { useNavigate } from 'react-router-dom'
 const Users = () => {
     const [modelOpen, setModelOpen] = useState(false);
