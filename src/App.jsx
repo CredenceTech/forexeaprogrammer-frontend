@@ -6,7 +6,7 @@ import {
 import Users from './Users';
 import { Toaster } from 'react-hot-toast';
 import Layout from './components/Layout';
-import Login from './login';
+import Login from './Login';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import RequireAuth from './components/RequireAuth';
