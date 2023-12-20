@@ -3,7 +3,6 @@ import { useLocalStorage } from "../utils";
 const RequireAuth = () => {
     const [name] = useLocalStorage('user')
 
-    console.log(" name", name)
 
     const location = useLocation()
     return (
