@@ -135,7 +135,7 @@ export default function Login() {
                         </button>
                     </div>
                 </form>
-                <p className="mt-8 text-xs font-light text-center text-gray-400">
+                {/* <p className="mt-8 text-xs font-light text-center text-gray-400">
                     {" "}
                     Don't have an account?{" "}
                     <a
@@ -144,7 +144,7 @@ export default function Login() {
                     >
                         Register
                     </a>
-                </p>
+                </p> */}
             </div>
         </div>
     );
