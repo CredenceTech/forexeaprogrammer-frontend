@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { devUrl, useLocalStorage } from './utils'
 import { useNavigate } from 'react-router-dom'
+import image from './assets/image.png'
+
 const Users = () => {
     const [modelOpen, setModelOpen] = useState(false);
     const [particularItem, setParticularItem] = useState(null);
@@ -9,6 +11,8 @@ const Users = () => {
     const [keywordValue, setKeywordValue] = useState("");
     const [error, setError] = useState('');
     const nagivate = useNavigate();
+    const [defalutDateValue, setDefalutDateValue] = useState('')
+
     const dateFoemate = (date_time) => {
         const dateObject = new Date(date_time);
 
@@ -66,15 +70,24 @@ const Users = () => {
     const [updateResponseData, setUpdateResponseData] = useState(null);
     const [deleteResponseData, setDeleteResponseData] = useState(null)
 
-    const minDate = new Date().toISOString().split('T')[0];;
+
     const handleChange = (e) => {
         const { name, value, } = e.target;
         setFormData({
             ...formData,
             [name]: value,
         });
+        if (name === 'date_time') {
+            setDefalutDateValue(value)
+
+        }
     };
 
+
+    useEffect(() => {
+        setDefalutDateValue(dateFoemate(particularItem?.date_time))
+    }, [particularItem])
+    console.log(" dafaulte Dtae", defalutDateValue)
     useEffect(() => {
         fetchUsers({ search: keywordValue, pageNumber: currentPage, pageSize: itemsPerPage });
     }, []);
@@ -91,6 +104,7 @@ const Users = () => {
                 account_number: '',
                 date_time: ''
             });
+            setDefalutDateValue('')
             setParticularItem(null);
             fetchUsers({ search: keywordValue, pageNumber: currentPage, pageSize: itemsPerPage });
         }
@@ -119,6 +133,7 @@ const Users = () => {
                 account_number: '',
                 date_time: ''
             });
+            setDefalutDateValue('')
             fetchUsers({ search: keywordValue, pageNumber: currentPage, pageSize: itemsPerPage });
         }
         if (addResponseData?.success === false) {
@@ -235,7 +250,7 @@ const Users = () => {
         e.preventDefault();
 
         // Your form submission logic here
-        if (!formData.name || !formData.account_number || !formData.date_time) {
+        if (!formData.name || !formData.account_number || !defalutDateValue) {
             setError('All fields are required');
             return;
         }
@@ -251,7 +266,7 @@ const Users = () => {
                     name: formData.name,
                     user_id: particularItem?.id,
                     account_number: formData.account_number,
-                    date_time: formData.date_time
+                    date_time: defalutDateValue
                 }
                 console.log("first body update", body)
                 updateUser(body)
@@ -259,7 +274,7 @@ const Users = () => {
                 const body = {
                     name: formData.name,
                     account_number: formData.account_number,
-                    date_time: formData.date_time
+                    date_time: defalutDateValue
                 }
                 if (body) {
                     addUser(body)
@@ -288,9 +303,10 @@ const Users = () => {
             <header className="text-gray-400 bg-gray-500 body-font">
                 <div className="container mx-auto flex flex-wrap p-5 justify-between md:flex-row items-center">
                     <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
+                        </svg> */}
+                        <img height={40} width={40} className='rounded-full' src={image} alt="logo" />
                         <span className="ml-3 text-xl">{name?.email}</span>
                     </a>
                     <div className='flex flex-row gap-4'>
@@ -373,7 +389,7 @@ const Users = () => {
                                 <h2 className="flex items-center  text-gray-100 gap-2 text-xl font-semibold leadi tracki">
                                     {particularItem?.name ? 'Update User' : 'Add User'}
                                 </h2>
-                                <button onClick={() => { setModelOpen(false); setParticularItem(null); setFormData({ name: '', account_number: '', date_time: '' }); setError('') }}>
+                                <button onClick={() => { setModelOpen(false); setParticularItem(null); setFormData({ name: '', account_number: '', date_time: '' }); setError(''); setDefalutDateValue('') }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
                                         <path fill='#a4a5a8' d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
                                     </svg>
@@ -416,8 +432,7 @@ const Users = () => {
                                         type="date"
                                         name="date_time"
                                         id="date_time"
-                                        min={minDate}
-                                        value={particularItem?.date_time ? dateFoemate(particularItem?.date_time) : formData.date_time}
+                                        value={defalutDateValue}
                                         onChange={handleChange}
                                         className="w-full  bg-opacity-40 rounded border bg-slate-700 border-gray-700 focus:ring-2 focus:ring-indigo-300  focus:border-indigo-500 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                     />
@@ -426,7 +441,7 @@ const Users = () => {
 
                                 <hr className='my-6' />
                                 <div className="flex flex-col justify-end gap-3 sm:flex-row">
-                                    <button onClick={() => { setModelOpen(false); setParticularItem(null); setFormData({ name: '', account_number: '', date_time: '' }); setError('') }} className="px-6 py-2 border rounded-sm text-gray-50 border-gray-700">Cancel</button>
+                                    <button onClick={() => { setModelOpen(false); setParticularItem(null); setFormData({ name: '', account_number: '', date_time: '' }); setError(''); setDefalutDateValue('') }} className="px-6 py-2 border rounded-sm text-gray-50 border-gray-700">Cancel</button>
                                     <button type="submit" className="px-6 py-2 rounded-sm shadow-sm bg-indigo-500   text-gray-900">
                                         {particularItem ? 'Update' : 'Submit'}
                                     </button>
