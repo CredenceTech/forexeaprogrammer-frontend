@@ -33,7 +33,7 @@ const Register = () => {
 
     const register = async (formData) => {
         try {
-            const response = await fetch(`${devUrl}registration`, {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}registration`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

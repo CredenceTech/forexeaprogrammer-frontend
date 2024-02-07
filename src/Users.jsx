@@ -165,7 +165,7 @@ const Users = () => {
                 .join('&');
 
             // Append the query string to the URL
-            const url = `${devUrl}users/list?${queryString}`;
+            const url = `${import.meta.env.VITE_APP_BACKEND_URL}users/list?${queryString}`;
             const response = await fetch(url, {
                 headers: {
                     'Authorization': `Bearer ${user?.api_key}`,
@@ -182,7 +182,7 @@ const Users = () => {
     // Create a new user
     const addUser = async (userData) => {
         try {
-            const response = await fetch(`${devUrl}user/add`, {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}user/add`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${user?.api_key}`,
@@ -200,7 +200,7 @@ const Users = () => {
     // Update an existing user
     const updateUser = async (userData) => {
         try {
-            const response = await fetch(`${devUrl}user/edit`, {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}user/edit`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${user?.api_key}`,
@@ -225,7 +225,7 @@ const Users = () => {
     // Delete a user
     const deleteUser = async (userId) => {
         try {
-            const response = await fetch(`${devUrl}user/delete`, {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}user/delete`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${user?.api_key}`,

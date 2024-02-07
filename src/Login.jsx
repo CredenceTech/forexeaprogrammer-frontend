@@ -34,7 +34,7 @@ export default function Login() {
 
     const login = async (formData) => {
         try {
-            const response = await fetch(`${devUrl}login`, {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
