@@ -27,7 +27,7 @@ const Dashboard = () => {
         nagivate('/login')
     }
 
-    const value = `curl --location --request GET 'https://api.forexeaprogrammer.com/api/validate-account' 
+    const value = `curl --location --request GET '${import.meta.env.VITE_APP_BACKEND_URL}validate-account' 
 --header 'Content-Type: application/json' 
 --header 'Authorization: Bearer ${name?.api_key}' 
 --data '{
